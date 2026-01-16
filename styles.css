@@ -16,6 +16,7 @@ html, body {
 
 /* 4. Add accessible line-height and improve text rendering */
 body {
+    font-family: "Raleway", sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -43,7 +44,145 @@ p, h1, h2, h3, h4, h5, h6 {
 
 
 
+/* --- Contact Section Container --- */
+#contact-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh; /* Takes up most of the viewport height */
+    background-image: url('images/contact-bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #eafcfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    overflow: hidden; /* Clips the decorative circles if they go too far out */
+}
 
+
+
+/* --- The Glass Card --- */
+.glass-card {
+    position: relative;
+    z-index: 10; /* Sits on top of circles */
+    background: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
+    backdrop-filter: blur(12px); /* The "Frosted Glass" effect */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Subtle white border */
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    text-align: center;
+}
+
+/* --- Header Text --- */
+.contact-header {
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    color: #0e5b66; /* Dark Teal */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.contact-header p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Form Layout --- */
+#contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* The 3-column row for Name/Phone/Email */
+.form-row-three {
+    display: flex;
+    gap: 40px; /* Space between columns */
+    justify-content: space-between;
+}
+
+.input-group {
+    flex: 1; /* Each input takes equal width */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* --- Input Styles (The Line Look) --- */
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+/* Removing box borders and adding bottom line */
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #26a69a; /* Teal line */
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Interactive focus state */
+.input-group input:focus,
+.input-group textarea:focus {
+    border-bottom-color: #006064; /* Darker teal on click */
+}
+
+/* TextArea specific tweaks */
+.input-group textarea {
+    resize: none; /* User cannot drag to resize */
+    min-height: 40px;
+}
+
+/* --- Submit Button --- */
+.form-submit {
+    margin-top: 20px;
+}
+
+.cta-button {
+    /* background: linear-gradient(90deg, #0e5b66 0%, #26c6da 100%); */
+    background: linear-gradient(90deg, #00376F 0%, #3BBC8C 50%, #0BB8F5 100%);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    /* box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3); */
+    box-shadow: 0 4px 15px rgba(59, 188, 140, 0.4);
+    /* transition: transform 0.2s, box-shadow 0.2s; */
+    background-size: 200% auto; 
+    transition: 0.5s;
+}
+
+.cta-button:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    /* box-shadow: 0 6px 20px rgba(0, 150, 136, 0.4); */
+    box-shadow: 0 6px 20px rgba(11, 184, 245, 0.5);
+}
 
 
 
@@ -207,6 +346,9 @@ p, h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+
+
+
 /* --- Responsive Styles --- */
 
 /* Tablet and Mobile (Below 900px) */
@@ -227,5 +369,29 @@ p, h1, h2, h3, h4, h5, h6 {
         position: absolute;
         bottom: 20px;
         right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    /* 1. Stack the row of 3 inputs vertically */
+    .form-row-three {
+        flex-direction: column; 
+        gap: 30px; /* Add breathing room between Name, Phone, and Email */
+    }
+
+    /* 2. Ensure the inputs take full width */
+    .input-group {
+        width: 100%; 
+    }
+
+    /* 3. Optional: Reduce padding on the glass card for small screens */
+    .glass-card {
+        padding: 30px 20px;
+    }
+
+    /* 4. Make the heading text slightly smaller so it doesn't wrap awkwardly */
+    .contact-header h2 {
+        font-size: 1.8rem; 
     }
 }
