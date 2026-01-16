@@ -43,6 +43,84 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* --- About Highlight Section --- */
+#about-highlight {
+    padding: 80px 20px;
+    background-color: #eafcfc; /* Matches your site's light blue theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-highlight .container {
+    max-width: 1000px; /* Controls the overall width */
+    width: 100%;
+}
+
+/* --- The White Card --- */
+.about-card {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 4px; /* Slight crisp rounding like the design */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between text, image, and footer */
+}
+
+/* --- Typography: Top --- */
+.about-label {
+    color: #00b4db; /* Brand Cyan/Blue */
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.about-text-top p {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 800px; /* Prevents text from being too long to read */
+}
+
+/* --- The Image --- */
+.about-image-wrapper {
+    width: 100%;
+    overflow: hidden; /* Ensures image stays within rounded corners if you add them */
+    border-radius: 2px;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Prevents it from getting too tall on huge screens */
+    object-fit: cover; /* Focuses on the center/sparks */
+    transition: transform 0.5s ease;
+}
+
+/* Optional: Slight zoom on hover for a dynamic feel */
+.about-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+/* --- Typography: Bottom (The Goal) --- */
+.about-text-bottom {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.about-text-bottom p {
+    color: #1a1a1a; /* Darker black for emphasis */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: 600; /* Bold */
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto; /* Centers the block */
+}
+
+
 /* --- Services Section Base --- */
 #services-section {
     position: relative;
@@ -768,6 +846,28 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    #about-highlight {
+        padding: 40px 15px;
+    }
+
+    .about-card {
+        padding: 30px 20px; /* Less padding on mobile to save space */
+        gap: 30px;
+    }
+
+    .about-label {
+        font-size: 0.9rem;
+    }
+
+    .about-text-top p {
+        font-size: 0.95rem;
+    }
+
+    .about-text-bottom p {
+        font-size: 1rem; /* Scale down the big bold text slightly */
+    }
+
+
     /* 1. Stack the logos in a neat grid (2 per row or 3 per row) */
     .logos-wrapper {
         gap: 30px; /* Smaller gap for mobile */
