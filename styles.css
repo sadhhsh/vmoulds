@@ -40,3 +40,192 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+
+
+
+
+
+
+
+/* --- Footer Styles --- */
+
+/* #main-footer {
+    position: relative;
+    background-color: #020b1c; 
+    color: #ffffff;
+    font-family: sans-serif;
+    
+    background: radial-gradient(circle at 50% 100%, #004e92 0%, #020b1c 60%);
+    overflow: hidden;
+} */
+
+#main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 11, 28, 0.5); /* 50% opacity dark blue */
+    z-index: 0; /* Behind the content */
+}
+
+#main-footer {
+    position: relative;
+    /* 1. Set the Fallback color (in case image doesn't load) */
+    background-color: #020b1c; 
+    
+    /* 2. Add the Image */
+    background-image: url('images/footer-bg.png');
+    
+    /* 3. Scale it to cover the whole area */
+    background-size: cover; 
+    
+    /* 4. Position it so the wave sits at the bottom or center as intended */
+    background-position: center center; 
+    
+    /* 5. Ensure text is white */
+    color: #ffffff;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+/* Container to keep content centered */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligns content to bottom near the wave */
+}
+
+/* --- Brand & Logo --- */
+.footer-brand {
+    margin-bottom: 30px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0BB8F5; /* Light Cyan for logo text */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Fake logo icon for structure */
+/* .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00b4db;
+    border-radius: 50%;
+    font-size: 14px;
+} */
+
+.logo-img {
+    height: 40px; /* Adjust this to match the text size */
+    width: auto;  /* Keeps the aspect ratio correct */
+    display: block;
+}
+
+/* --- Contact Details --- */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Space between address, email, phone */
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 350px;
+}
+
+.contact-item svg.icon {
+    width: 24px;
+    height: 24px;
+    color: #00b4db; /* Cyan icon color */
+    flex-shrink: 0; /* Prevents icon from squishing */
+}
+
+.contact-item p, 
+.contact-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.contact-item a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* --- Scroll to Top Button --- */
+.scroll-top-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Gradient similar to the button in the image */
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-5px);
+}
+
+.scroll-top-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- Copyright Bar --- */
+.copyright-bar {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker overlay */
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 13px;
+    color: #8892b0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-info, .copyright-bar {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Responsive Styles --- */
+
+/* Tablet and Mobile (Below 900px) */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 80px; /* Make room for the button */
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Position the scroll button absolute on mobile so it sits bottom-right */
+    .scroll-top-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+}
