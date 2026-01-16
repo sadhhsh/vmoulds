@@ -43,6 +43,180 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* --- Partners Section --- */
+#partners-section {
+    padding: 60px 20px;
+    background-color: #ede7f6; /* The Light Lavender color from your image */
+    text-align: center;
+}
+
+#partners-section .container {
+    /* max-width: 1200px;
+    margin: 0 auto; */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Flex column ensures Text sits ON TOP of logos, not side-by-side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- Header Styling --- */
+.partners-header {
+    margin-bottom: 50px;
+}
+
+.partners-header h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.partners-header p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width:700px;
+    margin: 0 auto;
+}
+
+/* --- Logos Wrapper (The Grid) --- */
+.logos-wrapper {
+    display: flex;
+    justify-content: center; /* Centers them in the middle */
+    align-items: center;     /* Vertically aligns them */
+    flex-wrap: wrap;         /* Allows wrapping on smaller screens */
+    gap: 50px;               /* Generous space between logos */
+    width: 100%;
+}
+
+/* --- The Logo Styling (Greyscale Magic) --- */
+.partner-logo {
+    height: 50px; 
+    width: auto;
+    
+    /* The Effect: Start transparent and black & white */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+/* --- Hover State --- */
+.partner-logo:hover {
+    filter: grayscale(0%); /* Bring back color */
+    opacity: 1;            /* Full visibility */
+    transform: scale(1.1); /* Subtle "Pop" effect */
+}
+
+
+/* --- Features / Certificates Section --- */
+#features-info-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+/* Reusing a container max-width if you haven't set it globally yet */
+#features-info-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split 50/50 on Desktop */
+    gap: 60px; /* Space between left text and right list */
+    /* align-items: center; Vertically center the content */
+    align-items: stretch;
+}
+
+.info-text-group {
+    margin-bottom: 20px; /* Space between text and image */
+}
+
+/* --- Left Side Content --- */
+.info-content-left {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    justify-content: space-between; /* This pushes the image to the bottom if there's extra space */
+    height: 100%; /* Takes full height of the grid cell */
+}
+
+.section-title {
+    color: #0BB8F5; /* Brand Cyan */
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: justify; /* Optional: gives it that clean block look */
+}
+
+.image-wrapper {
+    flex-grow: 1; /* Allows the image container to grow to fill space */
+    display: flex;
+    align-items: flex-end; /* Aligns the image itself to the bottom */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%; /* stretches image height */
+    object-fit: cover; /* Important: prevents the image from looking squashed */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-height: 250px; /* Prevents it from becoming too short on wide screens */
+}
+
+
+/* --- Right Side List (Certificates) --- */
+.info-list-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cert-card {
+    padding: 25px 30px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.cert-code {
+    font-weight: 800;
+    color: #000;
+}
+
+/* --- Alternating Colors Strategy --- */
+
+/* Odd items (1st, 3rd) get the Light Cyan/Greenish tint */
+.cert-card:nth-child(odd) {
+    background-color: #e0f7fa; /* Very light cyan */
+    border-left: 5px solid #26c6da; /* Accent border on the left */
+}
+
+/* Even items (2nd, 4th) get the Light Purple tint */
+.cert-card:nth-child(even) {
+    background-color: #ede7f6; /* Very light purple */
+    border-left: 5px solid #9575cd; /* Accent border on the left */
+}
+
+/* Hover Effect for Cards */
+.cert-card:hover {
+    transform: translateX(10px); /* Slides slightly to the right */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 
 /* --- Contact Section Container --- */
 #contact-section {
@@ -353,6 +527,40 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Tablet and Mobile (Below 900px) */
 @media (max-width: 900px) {
+    .logos-wrapper {
+        gap: 40px;
+    }
+    
+    .partner-logo {
+        max-height: 50px;
+    }
+
+    #features-info-section .container {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 40px;
+    }
+
+    /* On mobile, center the text for better balance */
+    .info-content-left {
+        text-align: center; 
+    }
+
+    .section-desc {
+        text-align: center; /* Keep long text left-aligned for readability */
+    }
+
+    /* Adjust the image to not be too huge on mobile */
+    .image-wrapper {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Cards stack naturally, but let's reduce padding slightly */
+    .cert-card {
+        padding: 20px;
+    }
+
+
     .container {
         flex-direction: column;
         align-items: flex-start;
@@ -373,6 +581,28 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    /* 1. Stack the logos in a neat grid (2 per row or 3 per row) */
+    .logos-wrapper {
+        gap: 30px; /* Smaller gap for mobile */
+        justify-content: center;
+    }
+
+    /* 2. Resize logos for mobile so they don't overflow */
+    .partner-logo {
+        height: 35px; /* Smaller height for small screens */
+        /* Optional: If a logo is very wide, limit its width */
+        max-width: 140px; 
+    }
+    
+    /* 3. Adjust Header Size */
+    .partners-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .partners-header p {
+        font-size: 0.95rem;
+        padding: 0 10px; /* Prevents text hitting the edge */
+    }
     
     /* 1. Stack the row of 3 inputs vertically */
     .form-row-three {
@@ -394,4 +624,6 @@ p, h1, h2, h3, h4, h5, h6 {
     .contact-header h2 {
         font-size: 1.8rem; 
     }
+
 }
+
