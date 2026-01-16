@@ -43,6 +43,177 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* --- Services Section Base --- */
+#services-section {
+    position: relative;
+    padding: 80px 20px;
+    min-height: 100vh;
+    
+    /* Background Image */
+    background-image: url('images/contact-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    
+    display: flex;
+    flex-direction: column; /* Stacks header on top of grid */
+    align-items: center;
+    justify-content: center;
+}
+
+#services-section .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Stacks items (Header on top, Grid below) */
+    align-items: center;    /* Centers them horizontally */
+}
+
+/* --- 1. Centered Header (Fixed) --- */
+.services-header-center {
+    text-align: center;
+    max-width: 800px; /* Prevents text from stretching too wide */
+    margin-bottom: 50px; /* Pushes the grid down */
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: #00376F;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* --- 2. The Grid --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* --- 3. The "Premium Panel" Design --- */
+.service-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 40px 30px;
+    
+    /* Default Shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    /* Smooth Transition for the card lift */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top Border Accent */
+.service-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+}
+
+.accent-teal::before  { background: linear-gradient(90deg, #26c6da, #00acc1); }
+.accent-green::before { background: linear-gradient(90deg, #66bb6a, #43a047); }
+.accent-blue::before  { background: linear-gradient(90deg, #00376F, #1565c0); }
+
+/* --- Typography --- */
+.service-panel h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+/* --- The List Items (New Animations) --- */
+.panel-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.panel-list li {
+    padding: 12px 15px; /* Added side padding for hover effect */
+    font-size: 0.95rem;
+    color: #444;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px; /* Rounded corners for the hover pill */
+    transition: all 0.3s ease; /* Smooth slide effect */
+    cursor: default;
+}
+
+.panel-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- INTERACTIVE ANIMATIONS --- */
+
+/* 1. Card Hover: Lift + Specific Colored Glow */
+.service-panel:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Custom Glows per color */
+.service-panel.accent-teal:hover {
+    box-shadow: 0 20px 40px rgba(38, 198, 218, 0.3); /* Teal Glow */
+}
+.service-panel.accent-green:hover {
+    box-shadow: 0 20px 40px rgba(67, 160, 71, 0.3); /* Green Glow */
+}
+.service-panel.accent-blue:hover {
+    box-shadow: 0 20px 40px rgba(0, 55, 111, 0.3); /* Blue Glow */
+}
+
+/* 2. Card Hover: Icon Rotation */
+.service-panel:hover .panel-icon svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 3. Card Hover: Title Color Match */
+.service-panel.accent-teal:hover h3 { color: #00acc1; }
+.service-panel.accent-green:hover h3 { color: #43a047; }
+.service-panel.accent-blue:hover h3 { color: #00376F; }
+
+/* 4. List Item Hover: Slide + Highlight */
+.accent-teal .panel-list li:hover {
+    transform: translateX(10px); /* Slide Right */
+    background-color: rgba(38, 198, 218, 0.1); /* Light Teal BG */
+    color: #00838f;
+}
+
+.accent-green .panel-list li:hover {
+    transform: translateX(10px);
+    background-color: rgba(67, 160, 71, 0.1); /* Light Green BG */
+    color: #2e7d32;
+}
+
+.accent-blue .panel-list li:hover {
+    transform: translateX(10px);
+    background-color: rgba(0, 55, 111, 0.1); /* Light Blue BG */
+    color: #00376F;
+}
+
 /* --- Partners Section --- */
 #partners-section {
     padding: 60px 20px;
@@ -527,6 +698,22 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Tablet and Mobile (Below 900px) */
 @media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack 1 column */
+        max-width: 450px; /* Restrict width so they don't look weirdly wide */
+        margin: 0 auto;   /* Center grid */
+        gap: 40px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    /* Make cards slightly more compact on mobile */
+    .service-panel {
+        padding: 30px 20px;
+    }
+
     .logos-wrapper {
         gap: 40px;
     }
