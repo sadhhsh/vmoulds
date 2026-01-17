@@ -1,0 +1,265 @@
+/* --- Responsive Styles --- */
+
+/* Tablet and Mobile (Below 900px) */
+@media (max-width: 900px) {
+
+/* Hide Desktop Nav & Button */
+    .desktop-nav, .nav-btn-wrapper {
+        display: none;
+    }
+
+    /* Show Hamburger */
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    /* Adjust Hero Text Size */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+.desktop-only { display: none; }
+    .mobile-only { display: flex; }
+    
+    #process-section .container {
+        height: auto; /* Allow auto height on mobile */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* --- The Fix for the Overlap --- */
+    .process-text-block {
+        position: relative; /* Disables 'absolute' from desktop */
+        top: auto;
+        left: auto;
+        width: 100%;        /* Full width */
+        text-align: center;
+        margin-bottom: 50px; /* Pushes the list down */
+    }
+
+/* Mobile Timeline Styles */
+    .mobile-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 25px; /* More space between cards */
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* The Card Container */
+    .m-step {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 5px solid #00b4db; /* Cyan accent bar */
+        display: flex;
+        align-items: flex-start; /* Aligns number and text to top */
+        gap: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        
+        /* The Animation Setup */
+        opacity: 0;
+        animation: slideUpFade 0.6s ease-out forwards;
+        animation-delay: var(--delay); /* Uses the delay set in HTML */
+    }
+
+    /* The Big Number */
+    .m-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+       color: #3BBC8D;
+    opacity: 0.3;
+        line-height: 1;
+        min-width: 60px; /* Ensures number doesn't squish */
+    }
+
+    /* The Text Content */
+    .m-content h4 {
+        font-size: 1.2rem;
+        color: #1a1a1a;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .m-content p {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.4;
+        margin: 0;
+    }
+    
+    /* Animation Keyframes */
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Start slightly lower */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* End in place */
+        }
+    }
+
+
+    
+    .values-grid {
+        grid-template-columns: 1fr; /* Stack vertically on mobile */
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .value-card {
+        padding: 30px;
+        align-items: center; /* Center align on mobile for better balance */
+        text-align: center;
+    }
+
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack 1 column */
+        max-width: 450px; /* Restrict width so they don't look weirdly wide */
+        margin: 0 auto;   /* Center grid */
+        gap: 40px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    /* Make cards slightly more compact on mobile */
+    .service-panel {
+        padding: 30px 20px;
+    }
+
+    .logos-wrapper {
+        gap: 40px;
+    }
+    
+    .partner-logo {
+        max-height: 50px;
+    }
+
+    #features-info-section .container {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 40px;
+    }
+
+    /* On mobile, center the text for better balance */
+    .info-content-left {
+        text-align: center; 
+    }
+
+    .section-desc {
+        text-align: center; /* Keep long text left-aligned for readability */
+    }
+
+    /* Adjust the image to not be too huge on mobile */
+    .image-wrapper {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Cards stack naturally, but let's reduce padding slightly */
+    .cert-card {
+        padding: 20px;
+    }
+
+
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 80px; /* Make room for the button */
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Position the scroll button absolute on mobile so it sits bottom-right */
+    .scroll-top-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+   
+    
+    /* Header Font Size */
+    .section-header-center h2 {
+        font-size: 2rem;
+    }
+
+    #about-highlight {
+        padding: 40px 15px;
+    }
+
+    .about-card {
+        padding: 30px 20px; /* Less padding on mobile to save space */
+        gap: 30px;
+    }
+
+    .about-label {
+        font-size: 0.9rem;
+    }
+
+    .about-text-top p {
+        font-size: 0.95rem;
+    }
+
+    .about-text-bottom p {
+        font-size: 1rem; /* Scale down the big bold text slightly */
+    }
+
+    /*------------------ Partners Section Adjustments ------------------*/
+
+    /* 1. Stack the logos in a neat grid (2 per row or 3 per row) */
+    .logos-wrapper {
+        gap: 30px; /* Smaller gap for mobile */
+        justify-content: center;
+    }
+
+    /* Resize logos for mobile so they don't overflow */
+    .partner-logo {
+        height: 35px; /* Smaller height for small screens */
+        max-width: 140px; 
+    }
+    
+    .partners-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .partners-header p {
+        font-size: 0.95rem;
+        padding: 0 10px; /* Prevents text hitting the edge */
+    }
+    
+    /*------------------ Contact Form Adjustments ------------------*/
+    .form-row-three {
+        flex-direction: column; 
+        gap: 30px; /* Add breathing room between Name, Phone, and Email */
+    }
+
+    /* Ensure the inputs take full width */
+    .input-group {
+        width: 100%; 
+    }
+
+    /* Reduce padding on the glass card for small screens */
+    .glass-card {
+        padding: 30px 20px;
+    }
+
+    .contact-header h2 {
+        font-size: 1.8rem; 
+    }
+
+}
+
