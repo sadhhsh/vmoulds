@@ -372,7 +372,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Step 2: The Collision Fix (Moved Right) */
-/* Old was left: 25% (Crash zone). New is left: 35% (Safe zone) */
 .pos-2 {
     left: 23%;
      top: 78%;
@@ -835,8 +834,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #partners-section .container {
-    /* max-width: 1200px;
-    margin: 0 auto; */
     max-width: 1200px;
     margin: 0 auto;
     /* Flex column ensures Text sits ON TOP of logos, not side-by-side */
@@ -879,10 +876,6 @@ p, h1, h2, h3, h4, h5, h6 {
 .partner-logo {
     height: 50px; 
     width: auto;
-    
-    /* The Effect: Start transparent and black & white */
-    /* filter: grayscale(100%); */
-    /* opacity: 0.6; */
     transition: all 0.3s ease; /* Smooth transition */
     cursor: pointer;
 }
@@ -901,7 +894,7 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: #ffffff;
 }
 
-/* Reusing a container max-width if you haven't set it globally yet */
+/* Reusing a container max-width globally*/
 #features-info-section .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1119,7 +1112,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .cta-button {
-    /* background: linear-gradient(90deg, #0e5b66 0%, #26c6da 100%); */
     background: linear-gradient(90deg, #00376F 0%, #3BBC8C 50%, #0BB8F5 100%);
     color: white;
     border: none;
@@ -1128,9 +1120,7 @@ p, h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
-    /* box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3); */
     box-shadow: 0 4px 15px rgba(59, 188, 140, 0.4);
-    /* transition: transform 0.2s, box-shadow 0.2s; */
     background-size: 200% auto; 
     transition: 0.5s;
 }
@@ -1138,25 +1128,11 @@ p, h1, h2, h3, h4, h5, h6 {
 .cta-button:hover {
     background-position: right center;
     transform: translateY(-2px);
-    /* box-shadow: 0 6px 20px rgba(0, 150, 136, 0.4); */
     box-shadow: 0 6px 20px rgba(11, 184, 245, 0.5);
 }
 
 
-
-
 /* --- Footer Styles --- */
-
-/* #main-footer {
-    position: relative;
-    background-color: #020b1c; 
-    color: #ffffff;
-    font-family: sans-serif;
-    
-    background: radial-gradient(circle at 50% 100%, #004e92 0%, #020b1c 60%);
-    overflow: hidden;
-} */
-
 #main-footer::before {
     content: "";
     position: absolute;
@@ -1170,21 +1146,15 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #main-footer {
     position: relative;
-    /* 1. Set the Fallback color (in case image doesn't load) */
+    /*Set the Fallback color (in case image doesn't load) */
     background-color: #020b1c; 
-    
-    /* 2. Add the Image */
     background-image: url('images/footer-bg.png');
-    
-    /* 3. Scale it to cover the whole area */
+    /* Scale it to cover the whole area */
     background-size: cover; 
-    
-    /* 4. Position it so the wave sits at the bottom or center as intended */
+    /*Position it so the wave sits at the bottom or center as intended */
     background-position: center center; 
-    
-    /* 5. Ensure text is white */
+    /* Ensure text is white */
     color: #ffffff;
-    font-family: sans-serif;
     overflow: hidden;
 }
 
@@ -1211,19 +1181,8 @@ p, h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
 }
-
-/* Fake logo icon for structure */
-/* .logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #00b4db;
-    border-radius: 50%;
-    font-size: 14px;
-} */
 
 .logo-img {
     height: 40px; /* Adjust this to match the text size */
@@ -1303,7 +1262,3 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 1;
 }
-
-
-
-
