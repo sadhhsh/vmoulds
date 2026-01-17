@@ -42,6 +42,195 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+
+/* --- Section Setup --- */
+#process-section {
+    position: relative;
+    padding: 80px 20px;
+    background: #fff;
+    overflow: hidden;
+}
+
+#process-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 700px; /* Fixed height is needed for absolute positioning to work */
+}
+
+/* --- 1. Text Block (Top Left) --- */
+.process-text-block {
+    position: absolute; /* Changed from relative to absolute */
+    top: 0;             /* Force to Top */
+    left: 0;            /* Force to Left */
+    width: 35%;         /* Restrict width so it doesn't hit the right side */
+    z-index: 10;
+    text-align: left;   /* Ensure text inside aligns left */
+}
+
+.sub-title {
+    color: #00b4db;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.process-text-block h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.process-text-block p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Reuse CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(90deg, #00376F, #00b4db);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- 2. The Wave (Desktop) --- */
+.wave-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind everything */
+    pointer-events: none;
+}
+
+.wave-background svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- 3. The Steps (Absolute Positioning) --- */
+.step-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    width: 150px;
+}
+
+/* The Dot */
+.step-dot {
+    width: 40px;
+    height: 40px;
+    background: #00376F;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px white;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.step-item:hover .step-dot {
+    transform: scale(1.3);
+    background: #00b4db;
+}
+
+/* Text & Number */
+.step-txt h4 {
+    font-size: 1rem;
+    color: #000;
+    font-weight: 700;
+}
+.step-num {
+    display: block;
+    font-size: 8rem;
+    color: #e0e0e0; /* Very light grey */
+    font-weight: 900;
+    line-height: 1;
+    position: absolute;
+    top: -50px;
+    left: 60%;
+    transform: translateX(-40%);
+    z-index: -1;
+}
+
+/* --- POSITIONS (The Magic Fix) --- */
+
+/* Step 1: Bottom Left (Start BELOW the text) */
+.pos-1 {
+    left: 1%;
+    top: 98%; /* Pushed lower to sit under the button */
+}
+
+/* Step 2: The Collision Fix (Moved Right) */
+/* Old was left: 25% (Crash zone). New is left: 35% (Safe zone) */
+.pos-2 {
+    left: 25%; 
+    top: 75%; 
+}
+
+/* Step 3: Center */
+.pos-3 {
+    left: 45%; /* Shifted right to maintain flow */
+    top: 45%; 
+}
+
+/* Step 4: High Right */
+.pos-4 {
+    left: 65%;
+    top: 25%; 
+}
+
+/* Step 5: Peak Top Right */
+.pos-5 {
+    right: 1%; /* Close to edge */
+    top: 15%;
+}
+
+.step-item .step-dot {
+    position: relative
+}
+
+.pos-1 .step-dot {
+    top:-68px;
+    left: 0px;
+}
+
+.pos-2 .step-dot {
+    top:-75px;
+    left: 0px;
+}
+
+.pos-3 .step-dot {
+    top:-75px;
+    left: 0px;
+}
+
+.pos-4 .step-dot {
+    top:-75px;
+    left: 0px;
+}
+
+.pos-5 .step-dot {
+    top:-68px;
+    left: 0px;
+}
+
+
+/* --- Responsive (Mobile) --- */
+.mobile-only { display: none; }
+
 /* --- Values Section Container --- */
 #values-section {
     padding: 100px 20px;
@@ -924,6 +1113,54 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Tablet and Mobile (Below 900px) */
 @media (max-width: 900px) {
+.desktop-only { display: none; }
+    .mobile-only { display: flex; }
+    
+    #process-section .container {
+        height: auto; /* Allow auto height on mobile */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* --- The Fix for the Overlap --- */
+    .process-text-block {
+        position: relative; /* Disables 'absolute' from desktop */
+        top: auto;
+        left: auto;
+        width: 100%;        /* Full width */
+        text-align: center;
+        margin-bottom: 50px; /* Pushes the list down */
+    }
+
+    /* Mobile Timeline Styles */
+    .mobile-timeline {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto; /* Centers the list */
+    }
+
+    .m-step {
+        background: #e8e2e2;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #00b4db;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #333;
+    }
+    
+    .m-step span {
+        font-size: 2.5rem;
+        color: #ddd;
+        font-weight: 900;
+    }
+
+
+    
     .values-grid {
         grid-template-columns: 1fr; /* Stack vertically on mobile */
         max-width: 450px;
@@ -1007,6 +1244,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+   
+    
+    /* Header Font Size */
+    .section-header-center h2 {
+        font-size: 2rem;
+    }
+
     #about-highlight {
         padding: 40px 15px;
     }
