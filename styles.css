@@ -42,6 +42,154 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/* --- Values Section Container --- */
+#values-section {
+    padding: 100px 20px;
+    background-color: #f8fcfd; /* Very subtle cool grey/white */
+    position: relative;
+    overflow: hidden;
+}
+
+#values-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Centers items horizontally */
+}
+
+/* --- Header --- */
+.values-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-bottom: 60px; /* Space between title and cards */
+    padding: 0 20px; /* Prevents text touching edges on mobile */
+}
+
+.values-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    /* Gradient Text Effect */
+    background: linear-gradient(90deg, #00376F, #00b4db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.values-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* --- The Grid --- */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Equal Columns */
+    gap: 40px;
+}
+
+/* --- Modern Card Style --- */
+.value-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); /* Extremely soft shadow */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left align text looks cleaner for reading */
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Icon Styling --- */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.icon-box svg {
+    width: 30px;
+    height: 30px;
+    stroke-width: 2px;
+}
+
+/* --- Theme Specific Colors (Gradients) --- */
+
+/* Blue Theme */
+.theme-blue .icon-box {
+    background: rgba(0, 55, 111, 0.05); /* Very faint blue background */
+    color: #00376F;
+}
+
+/* Green Theme */
+.theme-green .icon-box {
+    background: rgba(67, 160, 71, 0.05);
+    color: #43a047;
+}
+
+/* Teal Theme */
+.theme-teal .icon-box {
+    background: rgba(0, 180, 219, 0.05);
+    color: #00b4db;
+}
+
+/* --- Typography --- */
+.value-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- HOVER ANIMATIONS (The Magic) --- */
+
+.value-card:hover {
+    transform: translateY(-10px); /* Lift up */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+}
+
+/* On hover, fill the icon box with gradient and make icon white */
+.value-card.theme-blue:hover .icon-box {
+    background: linear-gradient(135deg, #00376F, #1565c0);
+    color: #ffffff;
+    transform: scale(1.1) rotate(-3deg); /* Subtle pop and twist */
+    box-shadow: 0 10px 20px rgba(0, 55, 111, 0.3);
+}
+
+.value-card.theme-green:hover .icon-box {
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    color: #ffffff;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 10px 20px rgba(67, 160, 71, 0.3);
+}
+
+.value-card.theme-teal:hover .icon-box {
+    background: linear-gradient(135deg, #00b4db, #26c6da);
+    color: #ffffff;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 10px 20px rgba(0, 180, 219, 0.3);
+}
+
+
+
 
 /* --- About Highlight Section --- */
 #about-highlight {
@@ -776,6 +924,19 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Tablet and Mobile (Below 900px) */
 @media (max-width: 900px) {
+    .values-grid {
+        grid-template-columns: 1fr; /* Stack vertically on mobile */
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .value-card {
+        padding: 30px;
+        align-items: center; /* Center align on mobile for better balance */
+        text-align: center;
+    }
+
+
     .services-grid {
         grid-template-columns: 1fr; /* Stack 1 column */
         max-width: 450px; /* Restrict width so they don't look weirdly wide */
