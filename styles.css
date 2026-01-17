@@ -49,6 +49,7 @@ p, h1, h2, h3, h4, h5, h6 {
     padding: 80px 20px;
     background: #fff;
     overflow: hidden;
+    margin-bottom:100px;
 }
 
 #process-section .container {
@@ -126,7 +127,16 @@ p, h1, h2, h3, h4, h5, h6 {
     align-items: center;
     text-align: center;
     z-index: 5;
-    width: 150px;
+    width: 200px;
+}
+
+/* Add this to style the new description text */
+.step-txt p {
+    font-size: 0.90rem; /* Small, clean text */
+    color: #666;           /* Soft grey */
+    line-height: 1.4;      /* Good readability */
+    margin-top: 5px;       /* Space between Title and Text */
+    font-weight: 500;
 }
 
 /* The Dot */
@@ -155,8 +165,8 @@ p, h1, h2, h3, h4, h5, h6 {
 .step-num {
     display: block;
     font-size: 8rem;
-    color: #e0e0e0; /* Very light grey */
-    font-weight: 900;
+    color: rgba(59, 188, 141, 0.3);
+    font-weight: 800;
     line-height: 1;
     position: absolute;
     top: -50px;
@@ -170,26 +180,26 @@ p, h1, h2, h3, h4, h5, h6 {
 /* Step 1: Bottom Left (Start BELOW the text) */
 .pos-1 {
     left: 1%;
-    top: 98%; /* Pushed lower to sit under the button */
+    top: 94.5%
 }
 
 /* Step 2: The Collision Fix (Moved Right) */
 /* Old was left: 25% (Crash zone). New is left: 35% (Safe zone) */
 .pos-2 {
-    left: 25%; 
-    top: 75%; 
+    left: 23%;
+     top: 78%;
 }
 
 /* Step 3: Center */
 .pos-3 {
-    left: 45%; /* Shifted right to maintain flow */
-    top: 45%; 
+    left: 40%;
+    top: 49%;
 }
 
 /* Step 4: High Right */
 .pos-4 {
-    left: 65%;
-    top: 25%; 
+    left: 59%;
+    top: 29%;
 }
 
 /* Step 5: Peak Top Right */
@@ -203,12 +213,12 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .pos-1 .step-dot {
-    top:-68px;
-    left: 0px;
+    top:-45px;
+    left: -45px;
 }
 
 .pos-2 .step-dot {
-    top:-75px;
+    top:-84px;
     left: 0px;
 }
 
@@ -1132,31 +1142,68 @@ p, h1, h2, h3, h4, h5, h6 {
         margin-bottom: 50px; /* Pushes the list down */
     }
 
-    /* Mobile Timeline Styles */
+/* Mobile Timeline Styles */
     .mobile-timeline {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 25px; /* More space between cards */
         width: 100%;
         max-width: 500px;
-        margin: 0 auto; /* Centers the list */
+        margin: 0 auto;
     }
 
+    /* The Card Container */
     .m-step {
-        background: #e8e2e2;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid #00b4db;
-        font-weight: 700;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 5px solid #00b4db; /* Cyan accent bar */
         display: flex;
-        align-items: center;
-        gap: 15px;
-        color: #333;
+        align-items: flex-start; /* Aligns number and text to top */
+        gap: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        
+        /* The Animation Setup */
+        opacity: 0;
+        animation: slideUpFade 0.6s ease-out forwards;
+        animation-delay: var(--delay); /* Uses the delay set in HTML */
+    }
+
+    /* The Big Number */
+    .m-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+       color: #3BBC8D;
+    opacity: 0.3;
+        line-height: 1;
+        min-width: 60px; /* Ensures number doesn't squish */
+    }
+
+    /* The Text Content */
+    .m-content h4 {
+        font-size: 1.2rem;
+        color: #1a1a1a;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .m-content p {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.4;
+        margin: 0;
     }
     
-    .m-step span {
-        font-size: 2.5rem;
-        color: #ddd;
-        font-weight: 900;
+    /* Animation Keyframes */
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Start slightly lower */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* End in place */
+        }
     }
 
 
