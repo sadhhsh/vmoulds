@@ -1105,7 +1105,16 @@ p, h1, h2, h3, h4, h5, h6 {
 #contact-form-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
+}
+
+/* Make the asterisk big and red */
+.req-star {
+    color: #ff0000;      /* Pure Red */
+    font-size: 1.4rem;   /* Bigger than the text */
+    line-height: 0;      /* Prevents it from messing up vertical alignment */
+    vertical-align: middle;
+    margin-left: 3px;
 }
 
 /* The 3-column row for Name/Phone/Email */
@@ -1127,7 +1136,7 @@ p, h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin-bottom: 8px;
+    margin: 10px 0 8px 0;
 }
 
 /* Removing box borders and adding bottom line */
@@ -1151,9 +1160,12 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* TextArea specific tweaks */
+/* Fix text area height */
 .input-group textarea {
-    resize: none; /* User cannot drag to resize */
-    min-height: 40px;
+    resize: vertical; /* Allow user to pull it down if they want */
+    min-height: 35px; /* Same height as your text inputs */
+    max-height: 150px;
+    overflow: hidden; /* Hides scrollbar for single line look */
 }
 
 /* --- Submit Button --- */

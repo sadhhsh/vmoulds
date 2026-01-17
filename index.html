@@ -403,17 +403,20 @@
                     <p>Ready? We are. Transforming Ideas into Reality with Quality Manufacturing.<br>Get your hands on experienced engineers who tailor to your needs.</p>
                 </div>
 
-                <!-- <form id="contact-form-container">
+                <!-- <form id="contactForm" onsubmit="sendHybridMessage(event)">
                     
+                    <input type="hidden" name="_subject" value="New Inquiry from VMoulds Website!">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-row-three">
                         <div class="input-group">
                             <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required maxlength="50">
+                            <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-z. ]+" title="Only letters allowed">
                         </div>
 
                         <div class="input-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="">
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" title="10 digit mobile number" placeholder="9876543210">
                         </div>
 
                         <div class="input-group">
@@ -425,79 +428,53 @@
                     <div class="form-row-full">
                         <div class="input-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="2" required maxlength="500"></textarea>
+                            <textarea id="message" name="message" rows="2" required minlength="10" maxlength="500" placeholder="How can we help you?"></textarea>
                         </div>
                     </div>
 
                     <div class="form-submit">
-                        <button type="submit" class="cta-button">Let's Get Moulding</button>
+                        <button type="submit" id="submitBtn" class="cta-button">
+                            Let's Get Moulding
+                        </button>
                     </div>
 
                 </form> -->
+                <form id="contactForm" onsubmit="sendHybridMessage(event)">
+            
+                    <input type="hidden" name="_subject" value="New Inquiry from VMoulds Website!">
+                    <input type="hidden" name="_captcha" value="false">
 
-                <form id="contactForm" onsubmit="sendToWhatsapp(event)">
-    
-    <div class="form-row-three">
-        <div class="input-group">
-            <label for="name">Name *</label>
-            <input 
-                type="text" 
-                id="name" 
-                required 
-                minlength="2" 
-                maxlength="50" 
-                pattern="[A-Za-z. ]+" 
-                title="Name can only contain letters and spaces (e.g. John Doe)"
-            >
-        </div>
+                    <div class="form-row-three">
+                        <div class="input-group">
+                            <label for="name">Name <span class="req-star">*</span></label>
+                            <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-z. ]+" title="Only letters allowed">
+                        </div>
 
-        <div class="input-group">
-            <label for="phone">Phone Number *</label>
-            <input 
-                type="tel" 
-                id="phone" 
-                required 
-                pattern="[0-9]{10}" 
-                maxlength="10" 
-                title="Please enter a valid 10-digit mobile number"
-                placeholder="9876543210"
-            >
-        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone Number <span class="req-star">*</span></label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" title="10 digit mobile number" placeholder="9876543210">
+                        </div>
 
-        <div class="input-group">
-            <label for="email">Email ID *</label>
-            <input 
-                type="email" 
-                id="email" 
-                required 
-                maxlength="50"
-            >
-        </div>
-    </div>
+                        <div class="input-group">
+                            <label for="email">Email ID <span class="req-star">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
 
-    <div class="form-row-full">
-        <div class="input-group">
-            <label for="message">Message *</label>
-            <textarea 
-                id="message" 
-                rows="2" 
-                required 
-                minlength="10" 
-                maxlength="500" 
-                placeholder="How can we help you?"
-                title="Message must be at least 10 characters long"
-            ></textarea>
-        </div>
-    </div>
+                    <div class="form-row-full">
+                        <div class="input-group">
+                            <label for="message">Message <span class="req-star">*</span></label>
+                            <textarea id="message" name="message" rows="1" required minlength="10" maxlength="500" placeholder="How can we help you?"></textarea>
+                        </div>
+                    </div>
 
-    <div class="form-submit">
-        <button type="submit" class="cta-button">
-            Send via WhatsApp 
-            <svg style="width:18px; height:18px; margin-left:8px; vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.662 1.907 1.22 3.467 1.221 3.181.002 5.767-2.586 5.767-5.766.001-3.182-2.585-5.767-5.766-5.767zm6.145 11.054l-.67.357c-2.455 1.307-4.116-3.663-1.433-5.273l.634-.381c.215-.129.428.172.583.429l.732 1.22c.156.258.079.627-.137.756l-.375.225c-.215.129-.12.422.179.919.299.499.664.793 1.05.793.155 0 .28-.052.375-.109l.375-.225c.215-.129.584-.077.74.181l.732 1.22c.156.257.062.671-.153.8l-.634.381c-.215.129-.428-.172-.583-.429z"/></svg>
-        </button>
-    </div>
+                    <div class="form-submit">
+                        <button type="submit" id="submitBtn" class="cta-button">
+                            Let's Get Moulding
+                        </button>
+                    </div>
 
-</form>
+                </form>
             </div>
         </section>
 

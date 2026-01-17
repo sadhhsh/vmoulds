@@ -9,39 +9,77 @@ function toggleMobileMenu() {
         }
 }
 
-function sendToWhatsapp(event) {
-        // 1. Stop the page from refreshing
-        event.preventDefault();
+function sendHybridMessage(event) {
+    event.preventDefault(); // Stop page reload
 
-        // 2. Get the values
-        var name = document.getElementById("name").value;
-        var phone = document.getElementById("phone").value;
-        var email = document.getElementById("email").value;
-        var message = document.getElementById("message").value;
+    // 1. Get Values
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    var submitBtn = document.getElementById("submitBtn");
 
-        // 3. SECURITY: "Sanitization" (The Anti-Hack Layer)
-        // This removes < and > characters so nobody can inject code scripts
-        name = name.replace(/[<>]/g, "");
-        message = message.replace(/[<>]/g, "");
+    // 2. Sanitize (Security)
+    name = name.replace(/[<>]/g, "");
+    message = message.replace(/[<>]/g, "");
 
-        // 4. Construct the Final Message
-        // %0a is code for "New Line"
-        var whatsappText = 
-            "*New Inquiry from Website*" + "%0a" +
-            "-------------------------" + "%0a" +
-            "*Name:* " + name + "%0a" +
-            "*Phone:* " + phone + "%0a" +
-            "*Email:* " + email + "%0a" +
-            "-------------------------" + "%0a" +
-            "*Message:* " + message;
+    // 3. User Feedback (Change button text so they know it's working)
+    var originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
 
-        // 5. Your Business Number (Format: CountryCode + Number, no spaces)
-        // EXAMPLE: 919876543210
-        var myPhoneNumber = "917046263431"; 
+    // --- ACTION A: SEND EMAIL (Background) ---
+    // We use FormSubmit's AJAX endpoint
+    fetch("https://formsubmit.co/ajax/vmouldsredaffail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            phone: phone,
+            email: email,
+            message: message
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Email sent successfully!");
+    })
+    .catch(error => {
+        console.log("Email failed, but proceeding to WhatsApp:", error);
+    });
 
-        // 6. Create the WhatsApp Link
-        var url = "https://wa.me/" + myPhoneNumber + "?text=" + whatsappText;
+    // --- ACTION B: OPEN WHATSAPP (Immediate) ---
+    // We don't wait for the email to finish; we open WA immediately for speed.
+    
+    var whatsappText = 
+        "*New Inquiry via Website*" + "%0a" +
+        "-------------------------" + "%0a" +
+        "*Name:* " + name + "%0a" +
+        "*Phone:* " + phone + "%0a" +
+        "*Email:* " + email + "%0a" +
+        "-------------------------" + "%0a" +
+        "*Message:* " + message;
 
-        // 7. Send! (Opens WhatsApp in new tab)
-        window.open(url, '_blank').focus();
-    }
+    var myNumber = "917946252431"; 
+    var waUrl = "https://wa.me/" + myNumber + "?text=" + whatsappText;
+
+    // Small delay to let the user see "Sending..."
+    setTimeout(function() {
+        window.open(waUrl, '_blank').focus();
+        
+        // Reset form and button
+        document.getElementById("contactForm").reset();
+        submitBtn.innerHTML = "Message Sent!";
+        submitBtn.style.background = "#3BBC8C"; // Change to Green to show success
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.background = ""; // Reset color
+        }, 3000);
+    }, 1000);
+}
