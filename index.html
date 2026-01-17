@@ -12,17 +12,63 @@
 <body>
 
     <header id="main-header">
-        <div class="logo-container"></div>
-        <nav class="main-navigation"></nav>
-        <div class="header-cta"></div>
     </header>
 
     <main>
 
-        <section id="hero-section">
-            <div class="hero-content">
-                </div>
-        </section>
+<header class="main-header">
+    <div class="nav-container">
+        
+        <a href="#" class="logo">
+            <div class="logo-text">
+                            <img src="images/logo.svg" alt="VMoulds Logo" class="logo-img"> VMOULDS
+                        </div>
+        </a>
+
+        <nav class="desktop-nav">
+            <ul class="nav-links">
+                <li><a href="#hero-section">Home</a></li>
+                <li><a href="#about-highlight">About</a></li>
+                <li><a href="#services-section">Services</a></li>
+                <li><a href="#process-section">Process</a></li>
+                <li><a href="#partners-section">Partners</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-btn-wrapper">
+            <a href="#contact-section" class="cta-button nav-cta">Contact Us</a>
+        </div>
+
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <div class="mobile-dropdown" id="mobileDropdown">
+        <a href="#hero-section" onclick="toggleMobileMenu()">Home</a>
+        <a href="#about-highlight" onclick="toggleMobileMenu()">About</a>
+        <a href="#services-section" onclick="toggleMobileMenu()">Services</a>
+        <a href="#process-section" onclick="toggleMobileMenu()">Process</a>
+        <a href="#partners-section" onclick="toggleMobileMenu()">Partners</a>
+        <a href="#contact-section" onclick="toggleMobileMenu()" class="mobile-cta">Contact Us</a>
+    </div>
+</header>
+
+
+<section id="hero-section">
+    <div class="hero-overlay"></div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <h1>Precision in Every Mould,<br>Excellence in Every Part.</h1>
+            <p>At VMOULDS, we specialize in the manufacturing of Plastic Injection Moulds, Compression Moulds, and precision Industrial Machinery Parts. Our mission is to transform your product ideas into reality with unmatched quality & efficiency.</p>
+            <a href="#services-section" class="cta-button hero-btn">Start Moulding</a>
+        </div>
+    </div>
+</section>
 
         <section id="process-section">
             <div class="container">
@@ -430,6 +476,6 @@ doorstep, on time.</p>
             <p>&copy; 2026 VMoulds. All Rights Reserved.</p>
         </div>
     </footer>
-
+<script src="script.js"></script>
 </body>
 </html>
