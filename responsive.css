@@ -263,3 +263,16 @@
 
 }
 
+@media (max-width: 500px) {
+    .cert-card {
+        flex-direction: column; /* Stack vertically on small phones */
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pdf-btn {
+        width: 100%; /* Full width button on mobile */
+        justify-content: center;
+    }
+}
+

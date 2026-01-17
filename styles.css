@@ -959,6 +959,10 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .cert-card {
+    display: flex; /* Makes items sit side-by-side */
+    justify-content: space-between; /* Pushes text left, button right */
+    align-items: center; /* Vertically centers them */
+    gap: 15px; /* Minimum space between text and button */
     padding: 25px 30px;
     border-radius: 6px;
     font-size: 0.95rem;
@@ -969,9 +973,55 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: default;
 }
 
+.cert-details {
+    display: flex;
+    flex-direction: column; /* Stacks Code on top of Name */
+    text-align: left;
+}
+
 .cert-code {
     font-weight: 800;
     color: #000;
+    font-size: 1rem;
+}
+
+.cert-name {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* The "View PDF" Button Styling */
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    background-color: white;
+    color: #00376F; /* Brand Blue */
+    border: 1px solid rgba(0, 55, 111, 0.2);
+    
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevents button text from breaking lines */
+    transition: all 0.3s ease;
+}
+
+.pdf-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Button Hover Effect */
+.pdf-btn:hover {
+    background-color: #00376F;
+    color: white;
+    border-color: #00376F;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 55, 111, 0.2);
 }
 
 /* --- Alternating Colors Strategy --- */
