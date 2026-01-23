@@ -30,7 +30,7 @@ function sendHybridMessage(event) {
 
     // --- ACTION A: SEND EMAIL (Background) ---
     // We use FormSubmit's AJAX endpoint
-    fetch("https://formsubmit.co/ajax/vmouldsredaffail.com", {
+    fetch("https://formsubmit.co/ajax/cccbaf084094d6fd0d9e0f3d3992532ef", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
@@ -39,8 +39,10 @@ function sendHybridMessage(event) {
         body: JSON.stringify({
             name: name,
             phone: phone,
-            email: email,
-            message: message
+            email: email, // This is the customer's email
+            message: message,
+            _cc: "some@gmail.com", // Sending copy to your other email
+            _subject: "New Website Inquiry" // Clean subject line
         })
     })
     .then(response => response.json())
@@ -63,7 +65,7 @@ function sendHybridMessage(event) {
         "-------------------------" + "%0a" +
         "*Message:* " + message;
 
-    var myNumber = "917946252431"; 
+    var myNumber = "91987654321"; 
     var waUrl = "https://wa.me/" + myNumber + "?text=" + whatsappText;
 
     // Small delay to let the user see "Sending..."
